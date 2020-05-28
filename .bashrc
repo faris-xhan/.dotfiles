@@ -23,17 +23,20 @@ PS1+="\[\033[1;31m\]\h \[\033[1;37m\]in "
 PS1+="\[\033[1;33m\]\w "
 PS1+="\[\e[94m\]\$(git_branch)" 
 PS1+="\n\[$NO_COLOR\]["
-PS1+="\[\033[1;30m\]$?" 
+#PS1+="\[\033[1;30m\]$?" 
+PS1+="\[\e[94m\]$?"
 PS1+="\[$NO_COLOR\]] "
 PS1+="\[\033[1;32m\]-> \[$NO_COLOR\]"
 
 # Alias
 alias ls="ls -pF --color=always"
+alias pip="pip3"
 alias grep="grep -i --color=always"
 alias diff="diff --color=always"
 alias python="python3"
 alias dotbash="vim ~/.bashrc"
 alias refresh="source ~/.bashrc"
+
 
 # PATH 
 export PATH=$PATH:/home/faris/homebrew/bin
