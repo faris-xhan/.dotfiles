@@ -19,6 +19,11 @@ filetype plugin indent on
 " Turn off modelines 
 set modelines=0
 
+" Automatically closing braces
+inoremap {<CR> {<CR>}<Esc>ko<tab>
+inoremap [<CR> [<CR>]<Esc>ko<tab>
+inoremap (<CR> (<CR>)<Esc>ko<tab>
+
 " Automatically wrap text that extends beyond the screen light
 set wrap
 
