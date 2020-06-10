@@ -39,6 +39,8 @@ alias python="python3"
 alias dotbash="vim ~/.bashrc"
 alias refresh="source ~/.bashrc"
 
+# Setting bat colors to man
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # PATH 
 export PATH=$PATH:/home/faris/homebrew/bin
