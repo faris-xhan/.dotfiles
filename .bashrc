@@ -43,4 +43,5 @@ alias refresh="source ~/.bashrc"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # PATH 
+TERM=screen-256color
 export PATH=$PATH:/home/faris/homebrew/bin
