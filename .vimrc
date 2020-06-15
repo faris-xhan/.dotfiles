@@ -19,6 +19,12 @@ filetype plugin indent on
 " Turn off modelines 
 set modelines=0
 
+" Relativer Line Number
+set number
+set relativenumber             " Show relative line numbers
+
+
+
 " Automatically closing braces
 inoremap {<CR> {<CR>}<Esc>ko<tab>
 inoremap [<CR> [<CR>]<Esc>ko<tab>

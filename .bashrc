@@ -35,7 +35,7 @@ alias grep="grep -i --color=always"
 alias diff="diff --color=always"
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
 alias start="xdg-open"
-alias python="python3"
+alias python="python3 -q"
 alias dotbash="vim ~/.bashrc"
 alias refresh="source ~/.bashrc"
 
@@ -45,3 +45,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # PATH 
 TERM=screen-256color
 export PATH=$PATH:/home/faris/homebrew/bin
+
+# Extend the regular expression for my bash 
+shopt -s extglob
+
+
