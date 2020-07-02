@@ -30,15 +30,7 @@ PS1+="\[\033[1;32m\]> \[$NO_COLOR\]"
 export PS1
 
 # Alias
-alias ls="ls -pF --color=always"
-alias pip="pip3"
-alias grep="grep -i --color=always"
-alias diff="diff --color=always"
-alias clear="printf '\033[2J\033[3J\033[1;1H'"
-alias start="xdg-open"
-alias python="python3 -q"
-alias dotbash="vim ~/.bashrc"
-alias refresh="source ~/.bashrc"
+[ -f $HOME/.bashrc_aliases ] && . $HOME/.bashrc_aliases
 
 # Setting bat colors to man
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
