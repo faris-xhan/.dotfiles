@@ -17,11 +17,6 @@ TERM=screen-256color
 unset command_not_found_handle
 
 
-# Function to parse the git branch
-git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
 
 # Prompt 
 #PS1="\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]\n" <- # ADD TIME BAR 
@@ -54,6 +49,9 @@ HISTCONTROL="ignorespace"
 # Setting bat colors to man
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+# Path Variable
+PATH=$PATH:~/homebrew/bin/
+PATH=$PATH:~/.myScripts/
 
 # Extend the regular expression for my bash 
 shopt -s extglob

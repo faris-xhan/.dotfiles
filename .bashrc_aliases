@@ -1,10 +1,23 @@
 # Alias
 alias ls="ls -pF --color=always"
-alias pip="pip3"
+alias pip="pip3.8"
 alias grep="grep -i --color=always"
 alias diff="diff --color=always"
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
 alias start="xdg-open"
-alias python="python3 -q"
+alias python="python3.8 -q"
+alias compile="~/myScripts/compile"
 alias dotbash="vim ~/.bashrc"
 alias refresh="source ~/.bashrc"
+
+# Functions 
+git_branch() {
+# Parse the git branch
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+fsql() {
+# Start MySQL with my database 
+   mysql --user=faris --database=${1:-faris_db} --password
+}
+

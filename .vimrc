@@ -1,4 +1,4 @@
-colorscheme gruvbox
+
 
 " Set compatibility to Vim only.
 set nocompatible
@@ -6,6 +6,7 @@ set nocompatible
 "Change Cursor
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 
 " Help force plug-ins to load correctly
 filetype on
@@ -78,9 +79,6 @@ set matchpairs+=<:>
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
-" Show line numbers
-set number
-
 " Encoding 
 set encoding=utf-8
 
@@ -109,6 +107,9 @@ autocmd BufWinEnter *.* silent loadview"
 
 
 " Status Line
+hi DiffChange  cterm=None ctermfg=NONE ctermbg=Black
+hi DiffDelete  cterm=None ctermfg=None ctermbg=Red
+
 set statusline=
 set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
@@ -125,10 +126,15 @@ set statusline+=%#Cursor#               " colour
 set statusline+=%#CursorLine#     " colour
 set statusline+=\ %t\                   " short file name
 set statusline+=%=                          " right align
-set statusline+=%#CursorLine#   " colour
+"M
+"set statusline+=%#CursorLine#   " colour
 set statusline+=\ %Y\                   " file type
 set statusline+=%#CursorIM#     " colour
 set statusline+=\ %3l:%-2c\         " line + column
 set statusline+=%#Cursor#       " colour
 set statusline+=\ %3p%%\                " percentage
 
+" Highlight the current line
+set cursorline
+hi Solid ctermbg=Black
+colorscheme gruvbox
