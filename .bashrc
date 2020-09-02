@@ -17,16 +17,29 @@ TERM=screen-256color
 unset command_not_found_handle
 
 
+# Load Alias
+[ -f $HOME/.bashrc_aliases ] && . $HOME/.bashrc_aliases
 
 # Prompt 
-#PS1="\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]\n" <- # ADD TIME BAR 
-PS1="\n\[\033[1;32m\]\w "
-PS1+="\[\e[94m\]\$(git_branch)"
-PS1+="\n\[$NO_COLOR\]|"
-PS1+="\[\e[101m\] \u "
-PS1+="\[$NO_COLOR\]| "
-PS1+="\[\033[1;34m\]|> \[$NO_COLOR\]"
+__prompt_command() {
+   local EXIT="$?"
+   local RCol='\[\e[0m\]'
+   local Red='\[\e[0;31m\]'
+   local Gre='\[\e[0;32m\]'
 
+   PS1="@\u: "
+   PS1+="\[\033[1;33m\]\w"
+   PS1+="\[\e[94m\]\$(git_branch)\[$NO_COLOR\]"
+   PS1+="\n\[$NO_COLOR\]["
+   if [ $EXIT != 0 ]; then
+      PS1+="${Red}$EXIT${RCol}"      # Add red if exit code non 0
+   else
+      PS1+="${Gre}$EXIT${RCol}"
+   fi
+   PS1+="\[$NO_COLOR\]] "
+}
+
+PROMPT_COMMAND=__prompt_command
 PS2="\[\033[1;33m\]|> \[$NO_COLOR\]"
 
 export PS1
@@ -35,10 +48,6 @@ export PS2
 # MySQL Prompt 
 MYSQL_PS1="\u [ \d ] |> "
 export MYSQL_PS1
-
-
-# Load Alias
-[ -f $HOME/.bashrc_aliases ] && . $HOME/.bashrc_aliases
 
 
 # HISTORY CONTROL
@@ -50,8 +59,8 @@ HISTCONTROL="ignorespace"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Path Variable
-PATH=$PATH:~/homebrew/bin/
-PATH=$PATH:~/.myScripts/
+PATH=$PATH:~/homebrew/bin/:~/.myScripts/
+
 
 # Extend the regular expression for my bash 
 shopt -s extglob
